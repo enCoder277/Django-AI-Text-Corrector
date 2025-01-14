@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Оценка исправления{% endblock %}
+
+{% block header %}Оцените исправление{% endblock %}
+
+{% block content %}
+<section>
+    <h1>Оцените корректировку</h1>
+    <p><strong>Оригинальный текст:</strong></p>
+    <blockquote>{{ correction.original_text }}</blockquote>
+    
+    <p><strong>Исправленный текст:</strong></p>
+    <blockquote>{{ correction.corrected_text }}</blockquote>
+
+    <p><strong>Объяснение исправлений:</strong></p>
+    <blockquote>{{ correction.explanation }}</blockquote>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label for="rating">Оцените корректировку (1 - плохо, 5 - отлично):</label>
+        <select name="rating" id="rating">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button type="submit">Отправить</button>
+    </form>
+</section>
+<a href="{% url 'history' %}">Вернуться к истории</a>
+{% endblock %}

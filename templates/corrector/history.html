@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}История исправлений{% endblock %}
+
+{% block header %}История исправлений{% endblock %}
+
+{% block content %}
+<ul>
+    {% for correction in corrections %}
+        <li>
+            <strong>{{ correction.timestamp }}</strong><br>
+            <em>Оригинальный текст:</em> {{ correction.original_text }}<br>
+            <em>Исправленный текст:</em> {{ correction.corrected_text }}<br>
+            <em>Объяснение:</em> {{ correction.explanation }}
+        </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'correct_text' %}">Назад</a>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}AI Корректор текстов{% endblock %}
+
+{% block header %}AI Корректор текстов{% endblock %}
+
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Исправить</button>
+</form>
+
+{% if corrected_text %}
+    <h2>Исправленный текст:</h2>
+    <p>{{ corrected_text }}</p>
+    <h2>Объяснение исправлений:</h2>
+    <p>{{ explanation }}</p>
+{% endif %}
+
+<a href="{% url 'history' %}">История исправлений</a>
+{% endblock %}

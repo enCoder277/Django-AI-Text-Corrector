@@ -1,0 +1,66 @@
+# Виртуальное окружение
+venv/
+.venv
+.env
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.py[cod]
+.mypy_cache/
+.pytest_cache/
+
+# Логи
+*.log
+*.out
+*.err
+
+# Базы данных
+*.sqlite3
+*.sql
+*.dump
+
+# Static и Media (генерируемые файлы)
+staticfiles/
+media/
+*.svg
+
+# Django
+db.sqlite3
+*.pot
+*.py~
+
+# Редакторы/IDE
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Сборки и дистрибутивы
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+*.manifest
+
+# Операционные системы
+.DS_Store
+Thumbs.db
+
+# Docker
+*.env
+docker-compose.override.yml
+
+# Node.js (если есть фронтенд)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/*.log
+
+# Секреты и конфигурации
+secrets.json
+config.json
