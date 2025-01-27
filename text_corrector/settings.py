@@ -14,6 +14,8 @@ from pathlib import Path
 from decouple import config
 import os
 
+from django.urls import reverse_lazy
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corrector',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -129,4 +132,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = 'correct_text'
+LOGOUT_REDIRECT_URL = 'users:login'
+LOGIN_URL = 'users:login'
