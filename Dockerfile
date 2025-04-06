@@ -1,10 +1,10 @@
 FROM python:3.13.0
 
-SHELL ["bin/bash", "-c"]
+SHELL ["/bin/bash", "-c"]
 
 # set environment variables
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
 RUN pip install --upgrade pip
 

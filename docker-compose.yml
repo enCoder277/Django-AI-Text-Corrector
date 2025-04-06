@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:15
+    container_name: db
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    env_file:
+      - .env
+    ports:
+      - "5433:5432"
+  web:
+      #image: text_corrector:latest - если image есть в докер хабе
+      build: .
+      container_name: text_corrector
+      depends_on:
+        - db
+      env_file:
+        - .env
+      ports:
+        - "8000:8000"
+      command: >
+        bash -c "./manage.py migrate && gunicorn -b 0.0.0.0:8000 text_corrector.wsgi:application"
+
+volumes:
+  pgdata:
